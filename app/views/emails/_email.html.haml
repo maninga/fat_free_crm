@@ -1,5 +1,5 @@
 - truncated = h(truncate(email.body_without_textile.to_s.gsub("\n", " "), :length => 125 - email.subject.to_s.size))
-- formatted = email.body
+- formatted = email.body.dup.force_encoding(Encoding::UTF_8)
 
 %li.mail{ highlightable(dom_id(email, :tools), :off => "#f2f2f2"), :id => dom_id(email) }
   .body
@@ -9,10 +9,10 @@
 
     %tt
       - if email.sent_to.to_s.include?(", ")
-        = "To: ".html_safe << email.sent_to
+        = "#{t(:to)}: ".html_safe << email.sent_to
       - else
-        = "To ".html_safe << link_to_email(email.sent_to)
-      = "from ".html_safe << link_to_email(email.sent_from) << ", sent on ".html_safe
+        = "#{t(:to)}: ".html_safe << link_to_email(email.sent_to)
+      = "#{t(:from_small)}: ".html_safe << link_to_email(email.sent_from) << ", #{t(:sent_on)} ".html_safe
       = l(email.sent_at, :format => :mmddhhss)
       = " | ".html_safe + link_to_function(email.collapsed? ? t(:more) : t(:less), "crm.flip_note_or_email(this, '#{t(:more)}', '#{t(:less)}')", :class => "toggle")
 

@@ -674,6 +674,11 @@ fr:
   dropbox_ack_to: ajoutés aux
   subject: Sujet
   body: Corps
+  from: De
+  from_small: de
+  to: A
+  to_small: à
+  sent_on: envoyé le
   
   # Lists
   #----------------------------------------------------------------------------
@@ -710,12 +715,12 @@ fr:
   date:
     formats:
       mmddyyyy: "%d/%m/%Y"
-      mmdd: "%e %b"
-      mmddyy: "%e %b %Y"
+      mmdd: "%b %e"
+      mmddyy: "%b %e %Y"
 
   time:
     formats:
-      mmddhhss: "%b %e à %H:%M%"
+      mmddhhss: "%e %b à %H:%M"
       mmddyyyy_hhmm: "%d/%m/%Y à %H:%M"
       
   calendar_date_select:

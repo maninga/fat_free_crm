@@ -124,7 +124,7 @@ class Setting < ActiveRecord::Base
       setting_files.each do |file|
         if File.exist?(file)
           begin
-            settings = YAML.load_file(file)
+            settings = YAML.load(ERB.new(File.new(file).read).result)
             # Merge settings into current settings hash
             @@yaml_settings.merge!(settings)
           rescue Exception => ex
