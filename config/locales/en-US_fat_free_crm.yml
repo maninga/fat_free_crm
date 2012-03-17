@@ -668,6 +668,12 @@ en-US:
   dropbox_ack_to: Added to
   subject: Subject
   body: Body
+  from: From
+  from_small: from
+  to: To
+  to_small: to
+  sent_on: sent on
+
 
   # Lists
   #----------------------------------------------------------------------------
